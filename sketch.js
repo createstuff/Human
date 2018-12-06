@@ -1,6 +1,3 @@
-// testing change 
-// hello
-
 let song;
 let button;
 let FFT;
@@ -24,9 +21,9 @@ let patternLayers = []
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	song = loadSound("SEVDALIZA-HUMAN.mp3", loaded); //developer >> ("SEVDALIZA-HUMAN.mp3", togglePlaying)
-	// button = createButton("play");
-	// button.mousePressed(togglePlaying);
+	song = loadSound("SEVDALIZA-HUMAN.mp3", loaded);
+	button = createButton("play");
+	button.mousePressed(togglePlaying);
 
 	FFT = new p5.FFT(.5,32);
 	FFT.setInput(song);
@@ -36,11 +33,6 @@ function setup() {
 
 	PALETTE = [
 			//melancholy muted
-			// color(220, 0 ,220, 220), 
-			// color(0, 220, 0,220),
-			// color(0, 0, 0),
-			// color(0, 0, 0),
-			// color(220, 220, 0,220)
 		color(74,102,112),	// navy
 		color(102,143,128),	// teal
 		color(160,175,132),	// green
@@ -64,14 +56,10 @@ function draw() {
 	push();
 		translate(width / 2, height / 2);
 		makeThing();
-	// if(song.currentTime() > 26.7 && song.currentTime() < 27){
-	 //  	const turn = 60;
-	 //  	rotate(turn);
-	 //  }
 	pop();
 
 	//frameRate();
-	console.log(frameRate());
+	//console.log(frameRate());
 }
 
 /*===========================================================
@@ -155,8 +143,7 @@ function onBeat(){
 
 function loaded() {
 	onBeat();
-	song.play();
-
+	song.pause();
 }
 
 
@@ -164,17 +151,18 @@ function loaded() {
 <<<<<<<<<<<<<<<<<<<<< DEVELOPER TOOLS >>>>>>>>>>>>>>>>>>>>>>>
 ============================================================*/
 
-// function togglePlaying() {
-// 	if (!song.isPlaying()){
-// 		song.play();
-// 		button.html("pause");
-// 		loop();
-// 	} else {
-// 		song.pause();
-// 		button.html("play");
-// 		noLoop();
-// 	}
-// }
+function togglePlaying() {
+
+	if (!song.isPlaying()){
+		song.play();
+		button.html("pause");
+		loop();
+	} else {
+		song.pause();
+		button.html("play");
+		noLoop();
+	}
+}
 
 // function test(_size, _numLines){
 // 	let kaleidoSize = 400;
