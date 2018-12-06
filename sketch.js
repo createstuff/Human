@@ -23,7 +23,18 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	song = loadSound("SEVDALIZA-HUMAN.mp3", loaded);
 	button = createButton("play");
-	button.mousePressed(togglePlaying);
+
+if ("ontouchstart" in document.documentElement)
+{
+	// Mobile
+	button.touchMoved(togglePlaying);
+}
+else
+{
+	// Desktop
+ button.mousePressed(togglePlaying);
+}
+
 
 	FFT = new p5.FFT(.5,32);
 	FFT.setInput(song);

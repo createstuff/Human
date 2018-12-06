@@ -17,14 +17,14 @@ canvas {
  margin:auto;
 }
 
-button, button:focus {
+button, button:focus, button:active {
  position: absolute;
  bottom: 0;
  left: 0;
  z-index: 10;
 
- /* firefox, chrome :: default styling */
- outline: none;
+ /* firefox, chrome :: default styling  firefox doesn't like to listen */
+ outline: none !important; 
 
  font-family: inherit;
  line-height: 1.2rem;
